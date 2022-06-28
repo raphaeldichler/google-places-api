@@ -1,9 +1,8 @@
 package net.plyse.api.google.places.connection;
 
-import net.plyse.api.google.places.parameter.Field;
 import net.plyse.api.google.places.parameter.InputType;
 import net.plyse.api.google.places.parameter.OutputType;
-import net.plyse.api.google.places.parameter.Type;
+import okhttp3.Response;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
@@ -23,7 +22,7 @@ public class TextSearchRequest implements Connection {
     }
 
     @Override
-    public void load() {
+    public Response load() {
     }
 
 

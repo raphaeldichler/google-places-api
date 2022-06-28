@@ -2,11 +2,15 @@ package net.plyse.api.google.places.connection;
 
 import net.plyse.api.google.places.parameter.InputType;
 import net.plyse.api.google.places.parameter.OutputType;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import java.io.IOException;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public class FindPlaceRequest implements Connection {
+public class FindPlaceRequest extends ApiConnection implements Connection {
 
     private String url;
 
@@ -21,8 +25,10 @@ public class FindPlaceRequest implements Connection {
     }
 
     @Override
-    public void load() {
-
+    public Response load() throws IOException {
+        return executeSync(new Request.Builder()
+                .url(url)
+                .build());
     }
 
     public static class RequestBuilder extends PlaceSearchRequestBuilder {
@@ -42,6 +48,12 @@ public class FindPlaceRequest implements Connection {
             super(apiKey);
             super.connection = connection;
             super.baseUrl = BASE_URL + outputType + "?" + inputType.toUrlValue() + "&" + "input=" + query + "&";
+        }
+
+        private String changeQuery(String newQuery) {
+
+
+            return "";
         }
 
     }
