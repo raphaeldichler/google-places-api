@@ -1,6 +1,5 @@
 package net.plyse.api.google.places.connection;
 
-import net.plyse.api.google.places.parameter.OutputType;
 import net.plyse.api.google.places.parameter.RequestField;
 import net.plyse.api.google.places.parameter.RequestPair;
 
@@ -13,38 +12,40 @@ import java.util.Set;
 public abstract class RequestBuilder {
 
     private static final String FIELDS_PREFIX = "fields=";
-    private static final String FIELDS_SEPARATOR = "%2C";
+    private static final String FIELDS_SEPARATOR = "%%2C"; //todo fml
     private static final String PARAMETER_SEPARATOR = "&";
 
     protected final Set<RequestField> fields = new HashSet<>(16);
     protected final Set<RequestPair> pairs = new HashSet<>(16);
 
     protected String baseUrl;
-    protected String apiKey;
+    protected final String apiKey;
     protected Connection connection;
 
     public abstract RequestBuilder addField(RequestField parameter);
 
     public abstract RequestBuilder addPair(RequestPair pair);
 
+    protected abstract void setUrl(String url);
+
     public RequestBuilder(String apiKey) {
         this.apiKey = "key=" + apiKey;
     }
 
     public Connection build() {
-        connection.setUrl(
+        setUrl(
                 baseUrl + getFieldSection() + getPairSection() + PARAMETER_SEPARATOR + apiKey
         );
 
         return connection;
     }
 
-    private String getPairSection() {
+    protected String getPairSection() {
         if (pairs.isEmpty()) {
             return "";
         }
 
-        StringBuilder s = new StringBuilder(FIELDS_PREFIX);
+        StringBuilder s = new StringBuilder();
 
         for (RequestPair field : pairs) {
             s.append(field.toUrlValue());
@@ -59,7 +60,7 @@ public abstract class RequestBuilder {
         return s.toString();
     }
 
-    private String getFieldSection() {
+    protected String getFieldSection() {
         if (fields.isEmpty()) {
             return "";
         }
