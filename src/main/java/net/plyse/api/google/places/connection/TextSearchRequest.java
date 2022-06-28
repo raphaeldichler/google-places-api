@@ -1,30 +1,38 @@
 package net.plyse.api.google.places.connection;
 
+import net.plyse.api.google.places.parameter.Field;
 import net.plyse.api.google.places.parameter.InputType;
 import net.plyse.api.google.places.parameter.OutputType;
+import net.plyse.api.google.places.parameter.Type;
+import okhttp3.Request;
 import okhttp3.Response;
+
+import java.io.IOException;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public class TextSearchRequest implements Connection {
+public class TextSearchRequest extends ApiConnection implements Connection {
 
     private String url;
-
-    @Override
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    private String query;
 
     @Override
     public String getUrl() {
-        return url;
+        return String.format(url, query);
     }
 
     @Override
-    public Response load() {
+    public Response load() throws IOException {
+        return executeSync(new Request.Builder()
+                .url(getUrl())
+                .build());
     }
 
+    @Override
+    public void changeQuery(String query) {
+        this.query = query;
+    }
 
     public static class RequestBuilder extends PlaceSearchRequestBuilder {
 
@@ -41,8 +49,14 @@ public class TextSearchRequest implements Connection {
         public RequestBuilder(String apiKey, OutputType outputType, String query, TextSearchRequest connection) {
             super(apiKey);
             super.connection = connection;
-            super.baseUrl = BASE_URL + outputType + "?" + "query=" + query + "&";
+            connection.query = query;
+            super.baseUrl = BASE_URL + outputType + "?" + "query=%s&";
         }
 
+
+        @Override
+        protected void setUrl(String url) {
+            ((TextSearchRequest) connection).url = url;
+        }
     }
 }

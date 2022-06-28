@@ -1,7 +1,6 @@
 package net.plyse.api.google.places.connection;
 
-import net.plyse.api.google.places.parameter.InputType;
-import net.plyse.api.google.places.parameter.OutputType;
+import net.plyse.api.google.places.parameter.*;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -13,22 +12,23 @@ import java.io.IOException;
 public class FindPlaceRequest extends ApiConnection implements Connection {
 
     private String url;
-
-    @Override
-    public void setUrl(String url) {
-        this.url = url;
-    }
+    private String query;
 
     @Override
     public String getUrl() {
-        return url;
+        return String.format(url, query);
     }
 
     @Override
     public Response load() throws IOException {
         return executeSync(new Request.Builder()
-                .url(url)
+                .url(getUrl())
                 .build());
+    }
+
+    @Override
+    public void changeQuery(String query) {
+        this.query = query;
     }
 
     public static class RequestBuilder extends PlaceSearchRequestBuilder {
@@ -47,15 +47,14 @@ public class FindPlaceRequest extends ApiConnection implements Connection {
                               FindPlaceRequest connection) {
             super(apiKey);
             super.connection = connection;
-            super.baseUrl = BASE_URL + outputType + "?" + inputType.toUrlValue() + "&" + "input=" + query + "&";
+            connection.query = query;
+            super.baseUrl = BASE_URL + outputType + "?" + inputType.toUrlValue() + "&" + "input=%s&";
         }
 
-        private String changeQuery(String newQuery) {
-
-
-            return "";
+        @Override
+        protected void setUrl(String url) {
+            ((FindPlaceRequest) connection).url = url;
         }
-
     }
 
 }

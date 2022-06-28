@@ -13,6 +13,7 @@ import static net.plyse.api.google.places.parameter.Field.*;
  */
 public abstract class PlaceSearchRequestBuilder extends RequestBuilder {
 
+    private static final String PARAMETER_SEPARATOR = "&";
     private static final Set<RequestField> INVALID_FIELDS =
             Set.of(ADDRESS_COMPONENT, ADDRESS, FORMATTED_PHONE_NUMBER, INTERNATIONAL_PHONE_NUMBER,
                     REVIEWS, TYPE, URL, UTC_OFFSET, VICINITY, WEBSITE);
@@ -36,5 +37,8 @@ public abstract class PlaceSearchRequestBuilder extends RequestBuilder {
         super.pairs.add(pair);
         return this;
     }
+
+
+
 
 }

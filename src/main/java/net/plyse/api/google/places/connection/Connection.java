@@ -9,10 +9,10 @@ import java.io.IOException;
  */
 public interface Connection {
 
-    void setUrl(String url);
-
     String getUrl();
 
     Response load() throws IOException;
+
+    void changeQuery(String query);
 
 }
