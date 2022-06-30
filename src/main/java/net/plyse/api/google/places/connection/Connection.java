@@ -1,6 +1,8 @@
 package net.plyse.api.google.places.connection;
 
 import okhttp3.Response;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
@@ -11,7 +13,7 @@ public interface Connection {
 
     String getUrl();
 
-    Response load() throws IOException;
+    JSONObject load() throws IOException, ParseException;
 
     void changeQuery(String query);
 
