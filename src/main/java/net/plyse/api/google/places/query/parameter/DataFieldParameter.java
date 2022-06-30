@@ -13,6 +13,11 @@ public class DataFieldParameter implements Parameter {
     private final String PARAMETER_KEY;
 
     public DataFieldParameter(Set<DataField> dataFields) {
+        if (dataFields.isEmpty()) {
+            PARAMETER_KEY = "";
+            return;
+        }
+
         StringBuilder parameter = new StringBuilder();
 
         for (DataField dataField : dataFields) {
@@ -27,6 +32,9 @@ public class DataFieldParameter implements Parameter {
 
     @Override
     public String toUrlValue() {
+        if (PARAMETER_KEY.isEmpty()) {
+            return "";
+        }
         return "fields=" + PARAMETER_KEY;
     }
 

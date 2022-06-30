@@ -1,16 +1,18 @@
-package net.plyse.api.google.places.query.format;
+package net.plyse.api.google.places.query.parameter;
+
+import net.plyse.api.google.places.query.parameter.Parameter;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public enum InputType  {
+public enum InputTypeParameter implements Parameter {
 
     PHONE_NUMBER("phonenumber"),
     TEXT_QUERY("textquery");
 
     private final String type;
 
-    InputType(String type) {
+    InputTypeParameter(String type) {
         this.type = type;
     }
 
