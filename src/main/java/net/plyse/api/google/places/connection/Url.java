@@ -1,4 +1,7 @@
 package net.plyse.api.google.places.connection;
 
-public class TextSearch {
+public interface Url {
+
+    String getBaseUrl();
+
 }

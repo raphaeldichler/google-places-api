@@ -21,10 +21,11 @@ import net.plyse.api.google.places.exception.InvalidRequestParameter;
  *     <li>{@link DataField#VICINITY}</li>
  *     <li>{@link DataField#WEBSITE}</li>
  * </ul>
- *
+ * <p>
  * If one of the following parameters is added to {@link FindPlace}, {@link NearbySearch} or {@link TextSearch},
  * the error {@link InvalidRequestParameter} is thrown.
  * If you need this information, you have to request it via PlaceDetails.
+ *
  * @author Raphael Dichler on 28.06.2022.
  */
 public enum DataField implements RequestField {
