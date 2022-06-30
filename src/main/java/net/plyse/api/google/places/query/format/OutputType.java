@@ -1,5 +1,6 @@
 package net.plyse.api.google.places.query.format;
 
+
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
