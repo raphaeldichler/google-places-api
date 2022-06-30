@@ -12,7 +12,17 @@ public abstract class ApiConnection {
     private final OkHttpClient client = new OkHttpClient().newBuilder().build();
 
     protected Response executeSync(Request request) throws IOException {
-        return client.newCall(request).execute();
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                System.out.println(response.body().string());
+//                throw new IOException("Unexpected code " + response);
+            }
+
+            System.out.println("Server: " + response.header("Server"));
+            System.out.println("Date: " + response.header("Date"));
+            System.out.println("Vary: " + response.headers("Vary"));
+            return response;
+        }
     }
 
 }

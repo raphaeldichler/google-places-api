@@ -102,7 +102,9 @@ public enum Type implements RequestPair {
     TRAVEL_AGENCY("travel_agency"),
     UNIVERSITY("university"),
     VETERINARY_CARE("veterinary_care"),
-    ZOO("zoo");
+    ZOO("zoo"),
+
+    PAGE_TOKEN("pagetoken");
 
     private final String placeType;
     private static final String KEY = "type=";
