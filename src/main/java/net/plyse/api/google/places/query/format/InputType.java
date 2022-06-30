@@ -1,9 +1,9 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.format;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public enum InputType implements RequestPair {
+public enum InputType  {
 
     PHONE_NUMBER("phonenumber"),
     TEXT_QUERY("textquery");
@@ -19,7 +19,6 @@ public enum InputType implements RequestPair {
         return type;
     }
 
-    @Override
     public String toUrlValue() {
         return "inputtype=" + type;
     }
