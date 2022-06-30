@@ -1,44 +1,48 @@
 package net.plyse.api.google.places.connection;
 
 import net.plyse.api.google.places.exception.InvalidRequestParameter;
-import net.plyse.api.google.places.parameter.RequestField;
-import net.plyse.api.google.places.parameter.RequestPair;
+import net.plyse.api.google.places.query.field.AtmosphereData;
+import net.plyse.api.google.places.query.field.BasicData;
+import net.plyse.api.google.places.query.field.ContactData;
+import net.plyse.api.google.places.query.field.DataField;
+import net.plyse.api.google.places.query.format.OutputType;
+import net.plyse.api.google.places.query.parameter.Parameter;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import static net.plyse.api.google.places.parameter.Field.*;
+public abstract class PlaceSearchRequestBuilder<T, K> {
 
-/**
- * @author Raphael Dichler on 28.06.2022.
- */
-public abstract class PlaceSearchRequestBuilder extends RequestBuilder {
+    private static final Set<DataField> ILLEGAL_DATA_FIELDS = Set.of(
+            BasicData.ADDRESS_COMPONENT, BasicData.ADDRESS, BasicData.TYPE, BasicData.URL, BasicData.UTC_OFFSET,
+            BasicData.VICINITY, ContactData.WEBSITE, ContactData.FORMATTED_PHONE_NUMBER,
+            ContactData.INTERNATIONAL_PHONE_NUMBER, AtmosphereData.REVIEWS
+    );
 
-    private static final String PARAMETER_SEPARATOR = "&";
-    private static final Set<RequestField> INVALID_FIELDS =
-            Set.of(ADDRESS_COMPONENT, ADDRESS, FORMATTED_PHONE_NUMBER, INTERNATIONAL_PHONE_NUMBER,
-                    REVIEWS, TYPE, URL, UTC_OFFSET, VICINITY, WEBSITE);
+    protected final Set<Parameter> parameters;
+    protected final Set<DataField> dataFields;
+    protected final OutputType outputType;
 
-    public PlaceSearchRequestBuilder(String apiKey) {
-        super(apiKey);
+    public PlaceSearchRequestBuilder(OutputType outputType) {
+        this.parameters = new HashSet<>();
+        this.dataFields = new HashSet<>();
+        this.outputType = outputType;
     }
 
-    @Override
-    public RequestBuilder addField(RequestField parameter) {
-        if (INVALID_FIELDS.contains(parameter)) {
-            throw new InvalidRequestParameter("Place search does not support the field: " + parameter.toUrlValue());
+    public K addParameter(Parameter parameter) {
+        this.parameters.add(parameter);
+        return (K) this;
+    }
+
+    public K addDataField(DataField dataField) {
+        if (ILLEGAL_DATA_FIELDS.contains(dataField)) {
+            throw new InvalidRequestParameter("PlaceSearch does not support the DataField " + dataField.toUrlValue());
         }
 
-        super.fields.add(parameter);
-        return this;
+        this.dataFields.add(dataField);
+        return (K) this;
     }
 
-    @Override
-    public RequestBuilder addPair(RequestPair pair) {
-        super.pairs.add(pair);
-        return this;
-    }
-
-
-
+    public abstract T build();
 
 }

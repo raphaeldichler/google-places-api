@@ -1,9 +1,6 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.field;
 
-/**
- * @author Raphael Dichler on 28.06.2022.
- */
-public enum Field implements RequestField {
+public enum BasicData implements DataField {
 
     ADDRESS_COMPONENT("address_component"),
     ADDRESS("adr_address"),
@@ -21,23 +18,11 @@ public enum Field implements RequestField {
     TYPE("type"),
     URL("url"),
     UTC_OFFSET("utc_offset"),
-    VICINITY("vicinity"),
-
-    // Contact
-    FORMATTED_PHONE_NUMBER("formatted_phone_number"),
-    INTERNATIONAL_PHONE_NUMBER("international_phone_number"),
-    OPENING_HOURS("opening_hours"),
-    WEBSITE("website"),
-
-    //Atmosphere
-    PRICE_LEVEL("price_level"),
-    RATING("rating"),
-    REVIEWS("reviews"),
-    USER_RATINGS_TOTAL("user_ratings_total");
+    VICINITY("vicinity");
 
     private final String type;
 
-    Field(String type) {
+    BasicData(String type) {
         this.type = type;
     }
 

@@ -1,10 +1,12 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.parameter;
 
+
+import net.plyse.api.google.places.query.parameter.Parameter;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public enum Language implements RequestPair {
+public enum LanguageParameter implements Parameter {
 
     GERMAN("de"),
     ENGLISH("en");
@@ -12,15 +14,13 @@ public enum Language implements RequestPair {
     // TODO: add other lang: https://developers.google.com/maps/faq#languagesupport
 
     private final String type;
-    private static final String KEY = "language=";
 
-    Language(String type) {
+    LanguageParameter(String type) {
         this.type = type;
     }
 
     @Override
     public String toUrlValue() {
-        return KEY + type;
+        return "language=" + type;
     }
-
 }

@@ -1,4 +1,5 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.format;
+
 
 /**
  * @author Raphael Dichler on 28.06.2022.
@@ -13,7 +14,6 @@ public enum OutputType {
     OutputType(String type) {
         this.type = type;
     }
-
     @Override
     public String toString() {
         return type;

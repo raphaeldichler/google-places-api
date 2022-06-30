@@ -1,10 +1,12 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.parameter;
 
+
+import net.plyse.api.google.places.query.parameter.Parameter;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public enum Type implements RequestPair {
+public enum TypeParameter implements Parameter {
 
     ACCOUNTING("accounting"),
     AIRPORT("airport"),
@@ -107,14 +109,13 @@ public enum Type implements RequestPair {
     PAGE_TOKEN("pagetoken");
 
     private final String placeType;
-    private static final String KEY = "type=";
 
-    Type(String placeType) {
+    TypeParameter(String placeType) {
         this.placeType = placeType;
     }
 
     public String toUrlValue() {
-        return KEY + placeType;
+        return "type=" + placeType;
     }
 
 }
