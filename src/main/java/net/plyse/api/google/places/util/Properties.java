@@ -14,10 +14,15 @@ public final class Properties {
         try {
             PROPERTIES.load(Properties.class.getClassLoader().getResourceAsStream("config.properties"));
         } catch (IOException e) {
-            throw new RuntimeException("Cloud not found the config.properties in the resources folder", e);
+            throw new RuntimeException("Cloud not found the config.properties in the resources folder");
         }
 
         API_KEY = loadApiKey();
+
+        if (API_KEY == null) {
+            throw new RuntimeException("Cloud not found the property key for the API-Key. (should be "
+                    +PROPERTY_KEY_FOR_API_KEY + "=YOUR_API_KEY)");
+        }
     }
 
     private static String loadApiKey() {

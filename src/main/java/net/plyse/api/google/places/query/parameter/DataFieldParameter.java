@@ -1,17 +1,21 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.parameter;
+
+import net.plyse.api.google.places.query.field.DataField;
 
 import java.util.Set;
-
+/**
+ * @author Raphael Dichler on 30.06.2022.
+ */
 public class DataFieldParameter implements Parameter {
 
     private static final String DATA_FIELD_SEPARATOR = "%2C";
 
     private final String PARAMETER_KEY;
 
-    public DataFieldParameter(Set<RequestField> dataFields) {
+    public DataFieldParameter(Set<DataField> dataFields) {
         StringBuilder parameter = new StringBuilder();
 
-        for (RequestField dataField : dataFields) {
+        for (DataField dataField : dataFields) {
             parameter.append(dataField.toUrlValue());
             parameter.append(DATA_FIELD_SEPARATOR);
         }

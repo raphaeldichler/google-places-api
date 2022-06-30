@@ -1,4 +1,4 @@
-package net.plyse.api.google.places.parameter;
+package net.plyse.api.google.places.query.parameter;
 
 public interface Parameter {
 
