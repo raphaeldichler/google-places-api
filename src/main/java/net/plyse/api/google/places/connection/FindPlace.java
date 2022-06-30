@@ -1,6 +1,7 @@
 package net.plyse.api.google.places.connection;
 
-import net.plyse.api.google.places.parameter.*;
+import net.plyse.api.google.places.parameter.InputType;
+import net.plyse.api.google.places.parameter.OutputType;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -9,7 +10,7 @@ import java.io.IOException;
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public class FindPlaceRequest extends ApiConnection implements Connection {
+public class FindPlace extends ApiConnection implements Connection {
 
     private String url;
     private String query;
@@ -36,7 +37,7 @@ public class FindPlaceRequest extends ApiConnection implements Connection {
         private static final String BASE_URL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/";
 
         public RequestBuilder(String apiKey, OutputType outputType, InputType inputType, String query) {
-            this(apiKey, outputType, inputType, query, new FindPlaceRequest());
+            this(apiKey, outputType, inputType, query, new FindPlace());
         }
 
         public RequestBuilder(String apiKey, String query) {
@@ -44,7 +45,7 @@ public class FindPlaceRequest extends ApiConnection implements Connection {
         }
 
         public RequestBuilder(String apiKey, OutputType outputType, InputType inputType, String query,
-                              FindPlaceRequest connection) {
+                              FindPlace connection) {
             super(apiKey);
             super.connection = connection;
             connection.query = query;
@@ -53,7 +54,7 @@ public class FindPlaceRequest extends ApiConnection implements Connection {
 
         @Override
         protected void setUrl(String url) {
-            ((FindPlaceRequest) connection).url = url;
+            ((FindPlace) connection).url = url;
         }
     }
 

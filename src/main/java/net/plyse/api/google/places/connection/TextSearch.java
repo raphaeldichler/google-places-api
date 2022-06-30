@@ -1,9 +1,7 @@
 package net.plyse.api.google.places.connection;
 
-import net.plyse.api.google.places.parameter.Field;
 import net.plyse.api.google.places.parameter.InputType;
 import net.plyse.api.google.places.parameter.OutputType;
-import net.plyse.api.google.places.parameter.Type;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -12,7 +10,7 @@ import java.io.IOException;
 /**
  * @author Raphael Dichler on 28.06.2022.
  */
-public class TextSearchRequest extends ApiConnection implements Connection {
+public class TextSearch extends ApiConnection implements Connection {
 
     private String url;
     private String query;
@@ -39,14 +37,14 @@ public class TextSearchRequest extends ApiConnection implements Connection {
         private static final String BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/";
 
         public RequestBuilder(String apiKey, OutputType outputType, InputType inputType, String query) {
-            this(apiKey, outputType, query, new TextSearchRequest());
+            this(apiKey, outputType, query, new TextSearch());
         }
 
         public RequestBuilder(String apiKey, String query) {
-            this(apiKey, OutputType.JSON, query, new TextSearchRequest());
+            this(apiKey, OutputType.JSON, query, new TextSearch());
         }
 
-        public RequestBuilder(String apiKey, OutputType outputType, String query, TextSearchRequest connection) {
+        public RequestBuilder(String apiKey, OutputType outputType, String query, TextSearch connection) {
             super(apiKey);
             super.connection = connection;
             connection.query = query;
@@ -56,7 +54,7 @@ public class TextSearchRequest extends ApiConnection implements Connection {
 
         @Override
         protected void setUrl(String url) {
-            ((TextSearchRequest) connection).url = url;
+            ((TextSearch) connection).url = url;
         }
     }
 }
