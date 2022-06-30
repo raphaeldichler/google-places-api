@@ -32,6 +32,10 @@ public abstract class RequestBuilder {
         this.apiKey = "key=" + apiKey;
     }
 
+    /**
+     *
+     * @return
+     */
     public Connection build() {
         setUrl(
                 baseUrl + getFieldSection() + getPairSection() + PARAMETER_SEPARATOR + apiKey

@@ -6,7 +6,7 @@ import net.plyse.api.google.places.parameter.RequestPair;
 
 import java.util.Set;
 
-import static net.plyse.api.google.places.parameter.Field.*;
+import static net.plyse.api.google.places.parameter.DataField.*;
 
 /**
  * @author Raphael Dichler on 28.06.2022.
