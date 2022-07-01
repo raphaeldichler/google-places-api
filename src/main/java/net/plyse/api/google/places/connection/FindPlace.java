@@ -53,12 +53,12 @@ public class FindPlace implements Connection, ChangeableUrl, QueryConnection {
 
     @Override
     public boolean addDataField(DataField dataField) {
-        return false;
+        return url.addDataField(dataField);
     }
 
     @Override
     public boolean changeDataField(DataField dataField) {
-        return false;
+        return url.changeDataField(dataField);
     }
 
     @Override
