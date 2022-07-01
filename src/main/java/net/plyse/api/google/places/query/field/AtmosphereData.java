@@ -1,5 +1,9 @@
 package net.plyse.api.google.places.query.field;
 
+import java.util.HashSet;
+import java.util.ServiceLoader;
+import java.util.Set;
+
 public enum AtmosphereData implements DataField {
 
     PRICE_LEVEL("price_level"),
@@ -16,5 +20,15 @@ public enum AtmosphereData implements DataField {
     public String toUrlValue() {
         return type;
     }
+
+    public static void main(String[] args) {
+
+        ServiceLoader<DataField> loader = ServiceLoader.load(DataField.class);
+        for (DataField implClass : loader) {
+            System.out.println(implClass.getClass().getSimpleName());
+        }
+
+    }
+
 
 }

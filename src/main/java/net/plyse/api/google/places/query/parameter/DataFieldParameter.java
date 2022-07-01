@@ -20,12 +20,12 @@ public class DataFieldParameter implements Parameter {
     }
 
     public boolean addDataField(DataField dataField) {
-        if (dataFields.add(dataField)) {
-            setUpParameter();
-            return true;
+        if (dataFields.contains(dataField)) {
+            return false;
         }
-
-        return false;
+        dataFields.add(dataField);
+        setUpParameter();
+        return true;
     }
 
     private void setUpParameter() {
@@ -65,5 +65,12 @@ public class DataFieldParameter implements Parameter {
     @Override
     public int hashCode() {
         return Objects.hash(parameterKey);
+    }
+
+    public boolean changeDataField(DataField dataField) {
+        if (dataFields.contains(dataField)) {
+            return true;
+        }
+        return false;
     }
 }

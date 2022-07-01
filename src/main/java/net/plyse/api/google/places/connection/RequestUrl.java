@@ -59,6 +59,8 @@ public final class RequestUrl implements Url, ChangeableUrl {
         url.delete(url.length() - 1, url.length());
         this.url = url.toString();
 
+        hasUrlChanged = false;
+
         return this.url;
     }
 
@@ -119,7 +121,7 @@ public final class RequestUrl implements Url, ChangeableUrl {
      */
     @Override
     public boolean changeDataField(DataField dataField) {
-        hasUrlChanged |= this.dataFieldParameter.addDataField(dataField);
+        hasUrlChanged |= this.dataFieldParameter.changeDataField(dataField);
         return hasUrlChanged;
     }
 
