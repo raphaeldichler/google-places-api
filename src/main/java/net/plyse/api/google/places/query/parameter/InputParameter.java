@@ -6,7 +6,7 @@ package net.plyse.api.google.places.query.parameter;
  */
 public class InputParameter implements Parameter {
 
-    private final String query;
+    private String query;
 
     public InputParameter(String query) {
         this.query = query;
@@ -15,6 +15,10 @@ public class InputParameter implements Parameter {
     @Override
     public String toUrlValue() {
         return "input=" + query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 
 }
