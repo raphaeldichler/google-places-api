@@ -18,7 +18,7 @@ Nevertheless, it is important to understand how to build queries to get the nece
 
 # Introduction to the Google Places API
 
-
+[contributors-shield]: https://img.shields.io/github/contributors/AuTEraZer/GooglePlacesApi.svg?style=for-the-badge
 [contributors-url]: https://github.com/AuTEraZer/GooglePlacesApi/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/AuTEraZer/GooglePlacesApi.svg?style=for-the-badge
 [forks-url]: https://github.com/AuTEraZer/GooglePlacesApi/network/members
