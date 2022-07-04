@@ -45,29 +45,6 @@ class UrlTest {
         return arguments.stream();
     }
 
-    private enum Dummy implements DataField {
-        DUMMY;
-
-        @Override
-        public String toUrlValue() {
-            return "dummy";
-        }
-    }
-
-    static Stream<Arguments> changeDataFieldSuccess() {
-        List<Arguments> arguments = new ArrayList<>(DATA_FIELDS.size());
-
-        for (DataField currentData : DATA_FIELDS) {
-            Set<DataField> dataFields = new HashSet<>();
-            dataFields.add(currentData);
-            arguments.add(Arguments
-                    .of(new RequestUrl(RequestUrl.BaseUrl.FIND_PLACE, OutputType.JSON, new HashSet<>(), dataFields),
-                            Dummy.DUMMY, true, Dummy.DUMMY.toUrlValue()));
-        }
-
-        return arguments.stream();
-    }
-
     static Stream<Arguments> addDataFieldFail() {
         List<Arguments> arguments = new ArrayList<>(DATA_FIELDS.size());
 
@@ -107,7 +84,7 @@ class UrlTest {
     }
 
     @ParameterizedTest
-    @MethodSource({"changeDataFieldFail", "changeDataFieldSuccess"})
+    @MethodSource({ "changeDataFieldFail"})
     void testChangeDataFieldUrl(Url url, DataField changedField, boolean isSucceed, String expectedResultChanged) {
         assertEquals(isSucceed,
                 url.changeDataField(changedField));
