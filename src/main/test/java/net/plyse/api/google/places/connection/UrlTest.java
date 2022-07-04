@@ -1,10 +1,12 @@
 package net.plyse.api.google.places.connection;
 
+import net.plyse.api.google.places.exception.InvalidRequestParameter;
 import net.plyse.api.google.places.query.field.AtmosphereData;
 import net.plyse.api.google.places.query.field.BasicData;
 import net.plyse.api.google.places.query.field.ContactData;
 import net.plyse.api.google.places.query.field.DataField;
 import net.plyse.api.google.places.query.format.OutputType;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -93,6 +95,27 @@ class UrlTest {
         } else {
             assertTrue(url.getUrl().contains(expectedResultChanged));
         }
+    }
+
+    @Test
+    void testAddInvalidDataField() {
+        Set<DataField> addressComponent = Set.of(
+                BasicData.ADDRESS_COMPONENT, BasicData.ADDRESS, BasicData.TYPE, BasicData.URL, BasicData.UTC_OFFSET,
+                BasicData.VICINITY, ContactData.WEBSITE, ContactData.FORMATTED_PHONE_NUMBER,
+                ContactData.INTERNATIONAL_PHONE_NUMBER, AtmosphereData.REVIEWS
+        );
+
+
+
+        for (DataField dataField : addressComponent) {
+            FindPlace.RequestBuilder requestBuilderFindPlace = new FindPlace.RequestBuilder("query");
+            TextSearch.RequestBuilder requestBuilderTextSearch = new TextSearch.RequestBuilder("query");
+
+
+            assertThrows(InvalidRequestParameter.class, () -> requestBuilderFindPlace.addDataField(dataField));
+            assertThrows(InvalidRequestParameter.class, () -> requestBuilderTextSearch.addDataField(dataField));
+        }
+
     }
 
 }
