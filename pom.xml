@@ -20,7 +20,6 @@
 
     <inceptionYear>2022</inceptionYear>
 
-
     <groupId>net.plyse.api.google.places</groupId>
     <artifactId>GooglePlacesApi</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -70,6 +69,8 @@
     </dependencies>
 
     <build>
+        <testSourceDirectory>${project.basedir}/src/main/test/</testSourceDirectory>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
