@@ -34,6 +34,8 @@ public abstract class PlaceSearchRequestBuilder<T, K> {
         return (K) this;
     }
 
+    //TODO: fix unchecked cast
+
     public K addDataField(DataField dataField) {
         if (ILLEGAL_DATA_FIELDS.contains(dataField)) {
             throw new InvalidRequestParameter("PlaceSearch does not support the DataField " + dataField.toUrlValue());

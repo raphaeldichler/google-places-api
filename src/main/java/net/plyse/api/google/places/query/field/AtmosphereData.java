@@ -1,8 +1,6 @@
 package net.plyse.api.google.places.query.field;
 
-import java.util.HashSet;
 import java.util.ServiceLoader;
-import java.util.Set;
 
 public enum AtmosphereData implements DataField {
 

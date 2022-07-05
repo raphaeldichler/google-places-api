@@ -9,7 +9,6 @@ public class NearbySearch implements Connection, ChangeableUrl {
 
     private Parameter requiredParameter;
     private final Url url;
-
     private NearbySearch(Url url) {
         this.url = url;
     }

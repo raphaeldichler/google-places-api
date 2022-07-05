@@ -15,21 +15,6 @@ public class FindPlace implements Connection, ChangeableUrl, QueryConnection {
 
     private InputParameter queryParameter;
 
-
-    public static void main(String[] args) {
-
-
-        FindPlace findPlace = new FindPlace.RequestBuilder("resturant in meiner nähe")
-                .addDataField(BasicData.NAME)
-                .addDataField(BasicData.FORMATTED_ADDRESS)
-                .build();
-
-        findPlace.execute();
-        findPlace.addParameter(TypeParameter.RESTAURANT);
-        findPlace.execute("tirol resturant");
-
-    }
-
     private final Url url;
 
     private FindPlace(Url url) {
