@@ -4,6 +4,7 @@ import net.plyse.api.google.places.query.field.DataField;
 import net.plyse.api.google.places.query.format.OutputType;
 import net.plyse.api.google.places.query.parameter.*;
 
+//TODO: redesign search forms
 public class TextSearch implements Connection, ChangeableUrl, QueryConnection {
 
     private QueryParameter queryParameter;

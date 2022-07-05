@@ -11,6 +11,7 @@ import net.plyse.api.google.places.query.parameter.Parameter;
 import java.util.HashSet;
 import java.util.Set;
 
+//TODO: redesign URL creation. request should be created easier
 public abstract class PlaceSearchRequestBuilder<T, K> {
 
     private static final Set<DataField> ILLEGAL_DATA_FIELDS = Set.of(
