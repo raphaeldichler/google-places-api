@@ -34,8 +34,8 @@ public class NearbySearch implements Connection, ChangeableUrl {
     }
 
     @Override
-    public void execute() {
-
+    public String execute() {
+        return "";
     }
 
     public static class RequestBuilder extends PlaceSearchRequestBuilder<NearbySearch, NearbySearch.RequestBuilder> {

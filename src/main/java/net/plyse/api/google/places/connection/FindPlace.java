@@ -22,8 +22,9 @@ public class FindPlace implements Connection, ChangeableUrl, QueryConnection {
     }
 
     @Override
-    public void execute() {
+    public String execute() {
         System.out.println(url);
+        return "";
     }
 
     @Override
