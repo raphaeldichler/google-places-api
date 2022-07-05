@@ -2,6 +2,11 @@ package net.plyse.api.google.places.util;
 
 import java.io.IOException;
 
+/**
+ * Loads the properties needed to successfully connect to the Google API.
+ * <br>
+ * @author Raphael Dichler on 28.06.2022.
+ */
 public final class Properties {
 
     public static final String API_KEY;

@@ -2,6 +2,9 @@ package net.plyse.api.google.places.query.field;
 
 import java.util.ServiceLoader;
 
+/**
+ *
+ */
 public enum AtmosphereData implements DataField {
 
     PRICE_LEVEL("price_level"),
