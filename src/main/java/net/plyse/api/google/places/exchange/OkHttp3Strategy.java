@@ -1,9 +1,8 @@
 package net.plyse.api.google.places.exchange;
 
 import okhttp3.OkHttpClient;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class OkHttp3Strategy implements DataExchangeStrategy<T> {
+public class OkHttp3Strategy implements DataExchangeStrategy {
 
     private static final OkHttp3Strategy INSTANCE = new OkHttp3Strategy();
 
@@ -18,8 +17,8 @@ public class OkHttp3Strategy implements DataExchangeStrategy<T> {
     }
 
     @Override
-    public T getRequest(URL url) {
-        throw new NotImplementedException();
+    public void getRequest(URL url) {
+        throw new IllegalCallerException();
     }
 
 }

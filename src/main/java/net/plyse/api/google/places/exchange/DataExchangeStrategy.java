@@ -6,7 +6,7 @@ package net.plyse.api.google.places.exchange;
  *
  * @author Raphael Dichler on 28.06.2022.
  */
-public interface DataExchangeStrategy<T> {
+public interface DataExchangeStrategy {
 
     /**
      * Performs a GET-Request to the API.
@@ -14,6 +14,6 @@ public interface DataExchangeStrategy<T> {
      * @param url The "Uniform Resource Locator" for the API request.
      * @return The answer of the GET-Request
      */
-    T getRequest(URL url);
+    void getRequest(URL url);
 
 }
