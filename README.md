@@ -1,3 +1,7 @@
+
+
+<div align="center">
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -5,10 +9,13 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+</div>
+
 # google-place-api
 
 This library streamlines the use of the Google Places API in combination with Spring Boot. So you don't have to struggle with building clever requests to the API and then painstakingly integrating that again into the Spring environment.
 
+not finished
 
 # Getting Started
 
