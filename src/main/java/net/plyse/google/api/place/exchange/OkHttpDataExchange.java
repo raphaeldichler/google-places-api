@@ -11,7 +11,7 @@ import java.util.Objects;
 @Service
 public class OkHttpDataExchange implements DataExchange {
 
-    private final OkHttpClient HTTP_CLIENT = new OkHttpClient();
+    private final OkHttpClient httpClient = new OkHttpClient();
 
     @Override
     public String getRequest(String url) throws IOException {
@@ -19,7 +19,7 @@ public class OkHttpDataExchange implements DataExchange {
                 .url(url)
                 .build();
 
-        try (Response response = HTTP_CLIENT.newCall(getRequest).execute()) {
+        try (Response response = httpClient.newCall(getRequest).execute()) {
             return Objects.requireNonNull(response.body()).string();
         }
     }

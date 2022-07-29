@@ -1,4 +1,4 @@
-package net.plyse.api.google.places.exception;
+package net.plyse.google.api.place.exception;
 
 /**
  * Thrown when no API key has been defined.
