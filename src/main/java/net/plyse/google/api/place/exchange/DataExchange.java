@@ -1,6 +1,7 @@
 package net.plyse.google.api.place.exchange;
 
-import java.net.URL;
+
+import java.io.IOException;
 
 public interface DataExchange {
 
@@ -10,7 +11,7 @@ public interface DataExchange {
      * @param url The URL to which the request will be executed.
      * @return The answer of the request.
      */
-    String getRequest(URL url);
+    String getRequest(String url) throws IOException;
 
 
 }
