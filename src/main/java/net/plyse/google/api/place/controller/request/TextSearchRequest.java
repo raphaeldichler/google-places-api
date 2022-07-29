@@ -8,7 +8,6 @@ import net.plyse.google.api.place.util.Utility;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 @Builder
 public class TextSearchRequest implements Parameter {
 
