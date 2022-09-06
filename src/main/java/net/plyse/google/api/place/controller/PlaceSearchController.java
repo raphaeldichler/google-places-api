@@ -1,6 +1,6 @@
 package net.plyse.google.api.place.controller;
 
-import net.plyse.google.api.place.controller.request.TextSearchRequest;
+import net.plyse.google.api.place.model.request.TextSearchRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

@@ -2,20 +2,19 @@ package net.plyse.google.api.place.search;
 
 
 import lombok.AllArgsConstructor;
-import net.plyse.google.api.place.controller.request.TextSearchRequest;
+import net.plyse.google.api.place.model.request.TextSearchRequest;
 import net.plyse.google.api.place.exchange.DataExchange;
-import org.springframework.stereotype.Service;
+import net.plyse.google.api.place.model.TextSearchResponse;
 
 import java.io.IOException;
 
-@Service
 @AllArgsConstructor
-public class TextSearch extends Search<TextSearchRequest> {
+public class TextSearch extends Search<TextSearchRequest, TextSearchResponse> {
 
-    private final DataExchange dataExchange;
+    private final DataExchange<TextSearchRequest, TextSearchResponse> dataExchange;
 
     @Override
-    public String search(TextSearchRequest textSearchRequest) throws IOException {
-        return null;
+    public TextSearchResponse search(TextSearchRequest textSearchRequest) throws IOException {
+        return dataExchange.getRequest(textSearchRequest);
     }
 }

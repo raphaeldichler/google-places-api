@@ -1,21 +1,19 @@
 package net.plyse.google.api.place.exchange;
 
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Objects;
 
 @Service
-public class OkHttpDataExchange implements DataExchange {
+public class OkHttpDataExchange<T, K> implements DataExchange<T, K> {
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
     @Override
-    public String getRequest(String url) throws IOException {
-        Request getRequest = new Request.Builder()
+    public K getRequest(T url) throws IOException {
+        /*
+         Request getRequest = new Request.Builder()
                 .url(url)
                 .build();
 
@@ -23,6 +21,7 @@ public class OkHttpDataExchange implements DataExchange {
         try (Response response = httpClient.newCall(getRequest).execute()) {
             return Objects.requireNonNull(response.body()).string();
         }
+         */
+        return null;
     }
-
 }

@@ -1,15 +1,14 @@
 package net.plyse.google.api.place.search;
 
 import net.plyse.google.api.place.exchange.DataExchange;
-import okhttp3.HttpUrl;
 
 import java.io.IOException;
 
-public abstract class Search<T> {
+public abstract class Search<T, K> {
 
-    protected DataExchange dataExchange;
+    protected DataExchange<T, K> dataExchange;
 
-    public abstract String search(T t) throws IOException;
+    public abstract K search(T t) throws IOException;
 
 
 }

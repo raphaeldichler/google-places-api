@@ -1,4 +1,4 @@
-package net.plyse.google.api.place.controller.request;
+package net.plyse.google.api.place.model.request;
 
 public interface Parameter {
 

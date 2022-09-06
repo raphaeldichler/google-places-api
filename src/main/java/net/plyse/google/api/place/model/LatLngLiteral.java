@@ -5,16 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class PlaceOpeningHours {
+public class LatLngLiteral {
 
-    private boolean openNow;
-    private List<PlaceOpeningHoursPeriod> periods;
-    private List<String> weekdayText;
+    private float lat;
+    private float lng;
 
 }
