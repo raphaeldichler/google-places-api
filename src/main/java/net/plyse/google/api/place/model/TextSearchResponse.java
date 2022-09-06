@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class TextSearchResponse {
+public class TextSearchResponse implements Response {
 
     private List<String> htmlAttributions;
     private List<Place> results;
