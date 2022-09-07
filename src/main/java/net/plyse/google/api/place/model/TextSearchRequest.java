@@ -4,17 +4,20 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.plyse.google.api.place.exception.IllegalParameterException;
 import net.plyse.google.api.place.exception.MissingParameterException;
+import net.plyse.google.api.place.util.Utility;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
-@JsonInclude(Include.NON_NULL)
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextSearchRequest implements Request {
 
     private static final String OUTPUT = "json";
@@ -54,7 +57,8 @@ public class TextSearchRequest implements Request {
             throw new MissingParameterException("A query is always needed for a text search.");
         }
 
-        StringBuilder stringBuilder = new StringBuilder(BASE_URL).append("?query=").append(query).append("&");
+        StringBuilder stringBuilder = new StringBuilder(BASE_URL).append("?query=").append(query)
+                .append("&key=").append(Utility.getApiKey()).append("&");
 
         if (language != null) stringBuilder.append("language=").append(language).append("&");
         if (location != null) stringBuilder.append("location=").append(location.getLat())

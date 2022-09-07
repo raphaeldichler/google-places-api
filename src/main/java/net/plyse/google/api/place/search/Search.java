@@ -6,9 +6,9 @@ import net.plyse.google.api.place.model.Response;
 
 import java.io.IOException;
 
-public abstract class Search<K extends Request, V extends Response> {
+public interface Search<V extends Response> {
 
-    public abstract V search(K request) throws IOException;
+    V search(Request request) throws IOException;
 
 
 }

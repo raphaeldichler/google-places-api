@@ -13,8 +13,8 @@ import java.util.List;
 @Setter
 public class PlaceOpeningHours {
 
-    private boolean openNow;
+    private boolean open_now;
     private List<PlaceOpeningHoursPeriod> periods;
-    private List<String> weekdayText;
+    private List<String> weekday_text;
 
 }

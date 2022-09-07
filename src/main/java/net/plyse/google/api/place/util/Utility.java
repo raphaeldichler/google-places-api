@@ -15,4 +15,9 @@ public final class Utility {
         return x >= 0 && x <= 4;
     }
 
+
+    public static String getApiKey() {
+        return "API_KEY";
+    }
+
 }

@@ -11,7 +11,7 @@ public interface DataExchange {
      * @param url The URL to which the request will be executed.
      * @return The answer of the request.
      */
-    String getRequest(String url) throws IOException;
+    String executeGetRequest(String url) throws IOException;
 
 
 }

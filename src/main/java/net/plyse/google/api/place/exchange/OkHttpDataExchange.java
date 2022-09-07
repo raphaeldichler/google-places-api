@@ -13,7 +13,7 @@ public class OkHttpDataExchange implements DataExchange {
     private final OkHttpClient httpClient = new OkHttpClient();
 
     @Override
-    public String getRequest(String url) throws IOException {
+    public String executeGetRequest(String url) throws IOException {
         Request getRequest = new Request.Builder()
                 .url(url)
                 .build();

@@ -1,23 +1,24 @@
 package net.plyse.google.api.place.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextSearchResponse implements Response {
 
-    private List<String> htmlAttributions;
-    private List<Place> results;
+    private String[] html_attributions;
+    private Place[] results;
     private PlacesSearchStatus status;
     private String errorMessage;
-    private List<String> infoMessages;
+    private String[] infoMessages;
     private String nextPageToken;
 
 }
