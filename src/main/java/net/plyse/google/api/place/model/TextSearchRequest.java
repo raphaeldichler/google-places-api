@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.plyse.google.api.place.exception.IllegalParameterException;
+import net.plyse.google.api.place.exception.MissingParameterException;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.*;
 
@@ -50,7 +51,7 @@ public class TextSearchRequest implements Request {
     @Override
     public String getUrl() {
         if (query == null || query.isEmpty()) {
-            throw new IllegalParameterException();
+            throw new MissingParameterException("A query is always needed for a text search.");
         }
 
         StringBuilder stringBuilder = new StringBuilder(BASE_URL).append("?query=").append(query).append("&");
