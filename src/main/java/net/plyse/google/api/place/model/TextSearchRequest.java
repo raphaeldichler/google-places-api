@@ -34,23 +34,6 @@ public class TextSearchRequest implements Request {
     private String region;
     private String type;
 
-    public static void main(String[] args) throws JsonProcessingException {
-        String jsonString =
-                "{\n" +
-                "\t\"query\": \"Hello World\",\n" +
-                "\t\"language\": \"de\",\n" +
-                "\t\"location\": {\n" +
-                "\t\t\"lat\": \"13.432\",\n" +
-                "\t\t\"lng\": \"-78.928\"\n" +
-                "\t}\n" +
-                "}";
-        ObjectMapper mapper = new ObjectMapper();
-        TextSearchRequest textSearchRequest = mapper.readValue(jsonString, TextSearchRequest.class);
-
-
-        System.out.println(textSearchRequest);
-    }
-
     @Override
     public String getUrl() {
         if (query == null || query.isEmpty()) {
