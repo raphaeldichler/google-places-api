@@ -21,6 +21,6 @@ public class TextSearchResponse implements Response {
     private PlacesSearchStatus status;
     private String errorMessage;
     private String[] infoMessages;
-    private String nextPageToken;
+    private String next_page_token;
 
 }

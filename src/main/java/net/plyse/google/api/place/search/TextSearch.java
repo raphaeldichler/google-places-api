@@ -9,7 +9,6 @@ import net.plyse.google.api.place.model.TextSearchRequest;
 import net.plyse.google.api.place.model.TextSearchResponse;
 
 import java.io.IOException;
-import java.util.Map;
 
 
 @AllArgsConstructor

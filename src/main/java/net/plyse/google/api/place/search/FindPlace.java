@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import lombok.AllArgsConstructor;
 import net.plyse.google.api.place.exchange.DataExchange;
+import net.plyse.google.api.place.exchange.OkHttpDataExchange;
 import net.plyse.google.api.place.model.FindPlaceResponse;
 import net.plyse.google.api.place.model.Request;
 
@@ -19,5 +20,8 @@ public class FindPlace implements Search<FindPlaceResponse> {
         String body = dataExchange.executeGetRequest(request.getUrl());
         return READER.readValue(body, FindPlaceResponse.class);
     }
+
+
+
 
 }
