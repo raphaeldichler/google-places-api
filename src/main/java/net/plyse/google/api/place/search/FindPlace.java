@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import lombok.AllArgsConstructor;
 import net.plyse.google.api.place.exchange.DataExchange;
-import net.plyse.google.api.place.exchange.OkHttpDataExchange;
 import net.plyse.google.api.place.model.FindPlaceResponse;
 import net.plyse.google.api.place.model.Request;
 

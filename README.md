@@ -1,5 +1,6 @@
 
 
+<!--suppress ALL -->
 <div align="center">
 
 [![Contributors][contributors-shield]][contributors-url]

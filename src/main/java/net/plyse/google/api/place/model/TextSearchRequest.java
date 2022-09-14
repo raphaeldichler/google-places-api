@@ -1,17 +1,12 @@
 package net.plyse.google.api.place.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.plyse.google.api.place.exception.IllegalParameterException;
 import net.plyse.google.api.place.exception.MissingParameterException;
 import net.plyse.google.api.place.util.Utility;
-
-import static com.fasterxml.jackson.annotation.JsonInclude.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
