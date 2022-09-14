@@ -13,6 +13,11 @@
     </remote-repository>
     <remote-repository>
       <option name="id" value="github" />
+      <option name="name" value="GitHub raphaeldichler Apache Maven Packages" />
+      <option name="url" value="https://maven.pkg.github.com/raphaeldichler/google-places-api" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="github" />
       <option name="name" value="github" />
       <option name="url" value="https://maven.pkg.github.com/OWNER/REPOSITORY" />
     </remote-repository>
