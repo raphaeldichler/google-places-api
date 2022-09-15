@@ -9,6 +9,7 @@
         Java client that simplifies the cumbersome process of connecting to Google Places API and still allows all
         possible query combinations.
     </description>
+    <url>https://github.com/raphaeldichler/google-places-api</url>
 
     <distributionManagement>
         <repository>
@@ -23,9 +24,24 @@
             <id>rdi</id>
             <name>Raphael Dichler</name>
             <email>raphael@dichler.com</email>
+            <organization>plyse.net</organization>
+            <organizationUrl>plyse.net</organizationUrl>
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/raphaeldichler/google-places-api.git</connection>
+        <developerConnection>scm:git:ssh://github.com:raphaeldichler/google-places-api.git</developerConnection>
+        <url>https://github.com/raphaeldichler/google-places-api</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
 
     <inceptionYear>2022</inceptionYear>
