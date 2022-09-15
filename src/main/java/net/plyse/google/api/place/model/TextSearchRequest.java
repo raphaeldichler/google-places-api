@@ -1,6 +1,5 @@
 package net.plyse.google.api.place.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import net.plyse.google.api.place.util.Utility;
 @NoArgsConstructor
 @Setter
 @Getter
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TextSearchRequest implements Request {
 
     private static final String OUTPUT = "json";

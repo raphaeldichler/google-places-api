@@ -1,7 +1,5 @@
 package net.plyse.google.api.place.search;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 import lombok.AllArgsConstructor;
 import net.plyse.google.api.place.exchange.DataExchange;
 import net.plyse.google.api.place.model.FindPlaceResponse;
@@ -12,12 +10,12 @@ import java.io.IOException;
 public class FindPlace implements Search<FindPlaceResponse> {
 
     private final DataExchange dataExchange;
-    private final ObjectReader READER = new ObjectMapper().readerFor(FindPlaceResponse.class);
+    //private final ObjectReader READER = new ObjectMapper().readerFor(FindPlaceResponse.class);
 
     @Override
     public FindPlaceResponse search(Request request) throws IOException {
         String body = dataExchange.executeGetRequest(request.getUrl());
-        return READER.readValue(body, FindPlaceResponse.class);
+        return null;// READER.readValue(body, FindPlaceResponse.class);
     }
 
 

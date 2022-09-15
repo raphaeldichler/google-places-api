@@ -1,7 +1,5 @@
 package net.plyse.google.api.place.search;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 import lombok.AllArgsConstructor;
 import net.plyse.google.api.place.exchange.DataExchange;
 import net.plyse.google.api.place.model.Request;
@@ -15,12 +13,12 @@ import java.io.IOException;
 public class TextSearch implements Search<TextSearchResponse> {
 
     private final DataExchange dataExchange;
-    private final ObjectReader READER = new ObjectMapper().readerFor(TextSearchResponse.class);
+   // private final ObjectReader READER = new ObjectMapper().readerFor(TextSearchResponse.class);
 
     @Override
     public TextSearchResponse search(Request request) throws IOException {
         String body = dataExchange.executeGetRequest(request.getUrl());
-        return READER.readValue(body, TextSearchResponse.class);
+        return null; //READER.readValue(body, TextSearchResponse.class);
     }
 
     public TextSearchResponse nextPage(String token) throws IOException {
@@ -28,6 +26,10 @@ public class TextSearch implements Search<TextSearchResponse> {
         request.setQuery("");
         request.setPageToken(token);
         return search(request);
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }

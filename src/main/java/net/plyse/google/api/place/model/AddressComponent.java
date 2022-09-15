@@ -1,6 +1,5 @@
 package net.plyse.google.api.place.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressComponent {
 
     private String longName;
