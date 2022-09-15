@@ -49,7 +49,7 @@
 
     <inceptionYear>2022</inceptionYear>
 
-    <groupId>net-plyse</groupId>
+    <groupId>net.plyse</groupId>
     <artifactId>google-places-api</artifactId>
     <version>0.1-SNAPSHOT</version>
 
