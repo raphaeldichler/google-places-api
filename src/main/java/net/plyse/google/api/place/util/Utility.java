@@ -7,9 +7,6 @@ public final class Utility {
         throw new IllegalAccessException();
     }
 
-
-
-
     @SuppressWarnings("SameReturnValue")
     public static String getApiKey() {
         return "API_KEY";
