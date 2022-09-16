@@ -1,7 +1,7 @@
 package net.plyse.google.api.place.exception;
 
 /**
- * Thrown when no API key has been defined.
+ * Thrown when no API key has been defined in config.properties.
  *
  * @author Raphael Dichler on 17.07.2022.
  */
