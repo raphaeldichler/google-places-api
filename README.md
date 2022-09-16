@@ -46,9 +46,14 @@ dependencies {
     implementation 'net.plyse:google-places-api:0.1.2'
 }
 ```
-If you use another building tool, you can also check the following link:
 
-https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar
+If you use another building tool which is not listed here or you want to use another version you can check the [following link](https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar).
+
+# Developer Documentation
+
+View the [javadoc](https://www.javadoc.io/doc/net.plyse/google-places-api).
+
+- [Places API]
 
 # Introduction to the Google Places API
 
@@ -65,3 +70,4 @@ https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/raphael-dichler-63741b189
 [product-screenshot]: images/screenshot.png
+[Places API]: https://developers.google.com/places/web-service/
