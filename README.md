@@ -24,6 +24,31 @@ not finished
 
 # Getting Started
 
+You can add the library to your project via Maven or Gradle.
+
+### Maven
+```xml
+<dependency>
+  <groupId>net.plyse</groupId>
+  <artifactId>google-places-api</artifactId>
+  <version>0.1.2</version>
+</dependency>
+```
+
+### Gradle
+
+```groovy
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.plyse:google-places-api:0.1.2'
+}
+```
+If you use another building tool, you can also check the following link:
+
+https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar
 
 # Introduction to the Google Places API
 
