@@ -12,6 +12,8 @@ final class Utility {
     private final static String OUTPUT_FORMAT_PROPERTY = "google.api.places.output";
     private final static String API_KEY_PROPERTY = "google.api.places.api-key";
 
+    public final static String LAT_LNG_STRING_FORMAT = "%s%%2C%s";
+
     static String API_KEY;
     static String OUTPUT_FORMAT;
 
@@ -34,7 +36,5 @@ final class Utility {
             ex.printStackTrace();
         }
     }
-
-
 
 }

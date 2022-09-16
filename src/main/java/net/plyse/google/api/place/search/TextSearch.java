@@ -22,9 +22,9 @@ public class TextSearch implements Search<TextSearchResponse> {
     }
 
     public TextSearchResponse nextPage(String token) throws IOException {
-        TextSearchRequest request = new TextSearchRequest();
-        request.setQuery("");
-        request.setPageToken(token);
+        TextSearchRequest request = new TextSearchRequest("");
+//        request.setQuery("");
+//        request.setPageToken(token);
         return search(request);
     }
 

@@ -1,17 +1,8 @@
 package net.plyse.google.api.place.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
-public class LatLngLiteral {
-
-    private float lat;
-    private float lng;
-
+public record LatLngLiteral(float lat, float lng) implements Parameter {
+    @Override
+    public String getValue() {
+        return String.format(Utility.LAT_LNG_STRING_FORMAT, lat, lng);
+    }
 }
