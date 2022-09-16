@@ -1,3 +1,5 @@
+<meta name="google-site-verification" content="ZR2IA0lMyedyFv3u6WQG9o9R2qRB7U_CwH5Vf-TOgNw" />
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/AuTEraZer/google-places-api/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
