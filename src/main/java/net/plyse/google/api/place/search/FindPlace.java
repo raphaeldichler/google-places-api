@@ -12,12 +12,12 @@ import java.io.IOException;
 public class FindPlace implements Search<FindPlaceResponse, FindPlaceRequest> {
 
     private final DataExchange dataExchange;
-    private final ObjectReader READER = new ObjectMapper().readerFor(FindPlaceResponse.class);
+    private final ObjectReader reader = new ObjectMapper().readerFor(FindPlaceResponse.class);
 
     @Override
     public FindPlaceResponse search(FindPlaceRequest request) throws IOException {
         String body = dataExchange.executeGetRequest(request.getUrl());
-        return READER.readValue(body, FindPlaceResponse.class);
+        return reader.readValue(body, FindPlaceResponse.class);
     }
 
 }

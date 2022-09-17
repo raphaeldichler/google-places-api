@@ -43,15 +43,15 @@ class TextSearchRequestTest {
         return Stream.of(
                 Arguments.of(new TextSearchRequest("query"),new String[]{"&query=query"}),
                 Arguments.of(new TextSearchRequest("query")
-                        .addParameter(RequestParameter.QUERY, "tmp"), new String[]{"&query=tmp"}),
+                        .addParameter(TextSearchRequestParameter.QUERY, "tmp"), new String[]{"&query=tmp"}),
                 Arguments.of(new TextSearchRequest("query")
-                        .addParameter(RequestParameter.MAX_PRICE, 2), new String[]{"&query=query", "&maxprice=2"}),
+                        .addParameter(TextSearchRequestParameter.MAX_PRICE, 2), new String[]{"&query=query", "&maxprice=2"}),
                 Arguments.of(new TextSearchRequest("query")
-                        .addParameter(RequestParameter.OPEN_NOW, true), new String[]{"&query=query", "&opennow=true"}),
+                        .addParameter(TextSearchRequestParameter.OPEN_NOW, true), new String[]{"&query=query", "&opennow=true"}),
                 Arguments.of(new TextSearchRequest("query").
-                        addParameter(RequestParameter.LOCATION, new LatLngLiteral(5,6)), new String[]{"&location=5.0%2C6.0", "&query=query"}),
+                        addParameter(TextSearchRequestParameter.LOCATION, new LatLngLiteral(5,6)), new String[]{"&location=5.0%2C6.0", "&query=query"}),
                 Arguments.of(new TextSearchRequest("query").
-                        addParameter(RequestParameter.LOCATION, 5,6), new String[]{"&location=5.0%2C6.0", "&query=query"})
+                        addParameter(TextSearchRequestParameter.LOCATION, 5,6), new String[]{"&location=5.0%2C6.0", "&query=query"})
         );
     }
 

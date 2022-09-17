@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import lombok.AllArgsConstructor;
 import net.plyse.google.api.place.exchange.DataExchange;
-import net.plyse.google.api.place.model.RequestParameter;
 import net.plyse.google.api.place.model.TextSearchRequest;
+import net.plyse.google.api.place.model.TextSearchRequestParameter;
 import net.plyse.google.api.place.model.TextSearchResponse;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class TextSearch implements Search<TextSearchResponse, TextSearchRequest>
     @Override
     public TextSearchResponse search(String pageToken) throws IOException {
         TextSearchRequest request = new TextSearchRequest("-")
-                .addParameter(RequestParameter.PAGE_TOKE, pageToken);
+                .addParameter(TextSearchRequestParameter.PAGE_TOKE, pageToken);
         return search(request);
     }
 

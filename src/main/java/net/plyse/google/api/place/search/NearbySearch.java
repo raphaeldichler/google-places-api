@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import lombok.AllArgsConstructor;
 import net.plyse.google.api.place.exchange.DataExchange;
 import net.plyse.google.api.place.model.NearbySearchRequest;
+import net.plyse.google.api.place.model.NearbySearchRequestParameter;
 import net.plyse.google.api.place.model.NearbySearchResponse;
 
 import java.io.IOException;
@@ -27,7 +28,8 @@ public class NearbySearch implements Search<NearbySearchResponse, NearbySearchRe
 
     @Override
     public NearbySearchResponse search(String pageToken) throws IOException {
-        NearbySearchRequest request;
-        return null;
+        NearbySearchRequest request = new NearbySearchRequest(0,0);
+        return search(request.addParameter(NearbySearchRequestParameter.PAGE_TOKE, pageToken));
     }
+
 }

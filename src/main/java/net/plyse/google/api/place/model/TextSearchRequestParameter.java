@@ -3,7 +3,7 @@ package net.plyse.google.api.place.model;
 /**
  * @author Raphael Dichler on 16.09.2022.
  */
-public enum RequestParameter {
+public enum TextSearchRequestParameter implements Parameter {
 
     QUERY("query="),
     LANGUAGE("language="),
@@ -17,12 +17,13 @@ public enum RequestParameter {
     TYPE("type=");
 
     private final String key;
-    RequestParameter(String key) {
+    TextSearchRequestParameter(String key) {
         this.key = key;
     }
 
     @Override
-    public String toString() {
-        return this.key;
+    public String getValue() {
+        return key;
     }
+
 }
