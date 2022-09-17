@@ -6,6 +6,9 @@ import net.plyse.google.api.place.search.TextSearch;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.plyse.google.api.place.util.Utility.PARAMETER_SEPARATOR;
+import static net.plyse.google.api.place.util.Utility.TEXT_SEARCH_BASE_URL;
+
 /**
  * Represents the request for a TextSearch. With the help of this class a search request can be sent to {@link TextSearch}.
  * The following parameters can be sent to the Google Places API:
@@ -32,9 +35,7 @@ import java.util.Map;
  */
 public class TextSearchRequest implements Request {
 
-    private static final String BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/" ;
-    private static final String PARAMETER_SEPARATOR = "&";
-    private final String TEXT_SEARCH_BASE_URL;
+    private final String BASE_URL;
     private final Map<RequestParameter, String> parameters = new HashMap<>();
 
     /**
@@ -46,7 +47,8 @@ public class TextSearchRequest implements Request {
         if (query == null || query.isEmpty()) {
             throw new MissingParameterException("A query is always needed for a text search.");
         }
-        this.TEXT_SEARCH_BASE_URL = BASE_URL + Utility.OUTPUT_FORMAT + "?key=" + Utility.API_KEY;
+        this.BASE_URL = TEXT_SEARCH_BASE_URL
+                + Utility.OUTPUT_FORMAT + "?key=" + Utility.API_KEY;
         parameters.put(RequestParameter.QUERY, query);
     }
 
@@ -56,7 +58,7 @@ public class TextSearchRequest implements Request {
      */
     @Override
     public String getUrl() {
-        StringBuilder stringBuilder = new StringBuilder(this.TEXT_SEARCH_BASE_URL).append(PARAMETER_SEPARATOR);
+        StringBuilder stringBuilder = new StringBuilder(this.BASE_URL).append(PARAMETER_SEPARATOR);
 
         for (Map.Entry<RequestParameter, String> para : parameters.entrySet()) {
             stringBuilder.append(para.getKey().toString())

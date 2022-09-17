@@ -11,7 +11,7 @@ import net.plyse.google.api.place.model.TextSearchResponse;
 import java.io.IOException;
 
 @AllArgsConstructor
-public class TextSearch implements Search<TextSearchResponse, TextSearchRequest> {
+public class TextSearch implements Search<TextSearchResponse, TextSearchRequest>, PageSearch<TextSearchResponse> {
 
     private final DataExchange dataExchange;
     private final ObjectReader READER = new ObjectMapper().readerFor(TextSearchResponse.class);
@@ -22,9 +22,10 @@ public class TextSearch implements Search<TextSearchResponse, TextSearchRequest>
         return READER.readValue(body, TextSearchResponse.class);
     }
 
-    public TextSearchResponse nextPage(String token) throws IOException {
-        TextSearchRequest request = new TextSearchRequest("")
-                .addParameter(RequestParameter.PAGE_TOKE, token);
+    @Override
+    public TextSearchResponse search(String pageToken) throws IOException {
+        TextSearchRequest request = new TextSearchRequest("-")
+                .addParameter(RequestParameter.PAGE_TOKE, pageToken);
         return search(request);
     }
 
