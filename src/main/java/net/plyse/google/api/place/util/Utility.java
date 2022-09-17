@@ -5,6 +5,7 @@ public final class Utility {
 
     public static final String TEXT_SEARCH_BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/" ;
     public static final String NEARBY_SEARCH_BASE_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/" ;
+    public static final String FIND_PLACE_BASE_URL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/" ;
     public static final String PARAMETER_SEPARATOR = "&";
 
 
