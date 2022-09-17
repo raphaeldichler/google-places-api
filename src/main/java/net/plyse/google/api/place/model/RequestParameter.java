@@ -3,11 +3,8 @@ package net.plyse.google.api.place.model;
 /**
  * @author Raphael Dichler on 16.09.2022.
  */
-public enum TextSearchParameter {
+public enum RequestParameter {
 
-    /**
-     *
-     */
     QUERY("query="),
     LANGUAGE("language="),
     LOCATION("location="),
@@ -20,7 +17,7 @@ public enum TextSearchParameter {
     TYPE("type=");
 
     private final String key;
-    TextSearchParameter(String key) {
+    RequestParameter(String key) {
         this.key = key;
     }
 

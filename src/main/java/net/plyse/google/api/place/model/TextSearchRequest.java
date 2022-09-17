@@ -12,19 +12,19 @@ import java.util.Map;
  * <br> <br>
  * Required parameters
  * <ul>
- *     <li>{@link TextSearchParameter#QUERY}</li>
+ *     <li>{@link RequestParameter#QUERY}</li>
  * </ul>
  * Optional  parameters
  * <ul>
- *     <li>{@link TextSearchParameter#LANGUAGE}</li>
- *     <li>{@link TextSearchParameter#LOCATION}</li>
- *     <li>{@link TextSearchParameter#MAX_PRICE}</li>
- *     <li>{@link TextSearchParameter#MIN_PRICE}</li>
- *     <li>{@link TextSearchParameter#OPEN_NOW}</li>
- *     <li>{@link TextSearchParameter#PAGE_TOKE}</li>
- *     <li>{@link TextSearchParameter#RADIUS}</li>
- *     <li>{@link TextSearchParameter#REGION}</li>
- *     <li>{@link TextSearchParameter#TYPE}</li>
+ *     <li>{@link RequestParameter#LANGUAGE}</li>
+ *     <li>{@link RequestParameter#LOCATION}</li>
+ *     <li>{@link RequestParameter#MAX_PRICE}</li>
+ *     <li>{@link RequestParameter#MIN_PRICE}</li>
+ *     <li>{@link RequestParameter#OPEN_NOW}</li>
+ *     <li>{@link RequestParameter#PAGE_TOKE}</li>
+ *     <li>{@link RequestParameter#RADIUS}</li>
+ *     <li>{@link RequestParameter#REGION}</li>
+ *     <li>{@link RequestParameter#TYPE}</li>
  * </ul>
  * More details are available at the official website of
  * <a href="https://developers.google.com/maps/documentation/places/web-service/search-text">Google-Places</a>
@@ -33,9 +33,9 @@ import java.util.Map;
 public class TextSearchRequest implements Request {
 
     private static final String BASE_URL = "https://maps.googleapis.com/maps/api/place/textsearch/" ;
-
+    private static final String PARAMETER_SEPARATOR = "&";
     private final String TEXT_SEARCH_BASE_URL;
-    private final Map<TextSearchParameter, String> parameters = new HashMap<>();
+    private final Map<RequestParameter, String> parameters = new HashMap<>();
 
     /**
      * Creates a basic framework, so that a valid Request and TextSearch can be made.
@@ -46,18 +46,24 @@ public class TextSearchRequest implements Request {
         if (query == null || query.isEmpty()) {
             throw new MissingParameterException("A query is always needed for a text search.");
         }
-        this.TEXT_SEARCH_BASE_URL = BASE_URL + Utility.OUTPUT_FORMAT + "&key=" + Utility.API_KEY;
-        parameters.put(TextSearchParameter.QUERY, query);
+        this.TEXT_SEARCH_BASE_URL = BASE_URL + Utility.OUTPUT_FORMAT + "?key=" + Utility.API_KEY;
+        parameters.put(RequestParameter.QUERY, query);
     }
 
+    /**
+     * Creates a URL based on the passed parameters (from addParameter).
+     * @return Die URL mit welcher einen Request an die TextSearch API stellen kann.
+     */
     @Override
     public String getUrl() {
-        StringBuilder stringBuilder = new StringBuilder(this.TEXT_SEARCH_BASE_URL);
+        StringBuilder stringBuilder = new StringBuilder(this.TEXT_SEARCH_BASE_URL).append(PARAMETER_SEPARATOR);
 
-        for (Map.Entry<TextSearchParameter, String> para : parameters.entrySet()) {
+        for (Map.Entry<RequestParameter, String> para : parameters.entrySet()) {
             stringBuilder.append(para.getKey().toString())
-                    .append(para.getValue());
+                    .append(para.getValue()).append(PARAMETER_SEPARATOR);
         }
+
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
 
         return stringBuilder.toString();
     }
@@ -66,17 +72,17 @@ public class TextSearchRequest implements Request {
      * Adds a parameter to the search query. If the same TextSearchParameter is added several times, then the last one is overwritten.
      * A parameter always consists of a key and a value. This method should be used for one of the following parameters:
      * <ul>
-     *     <li>{@link TextSearchParameter#QUERY}</li>
-     *     <li>{@link TextSearchParameter#LANGUAGE}</li>
-     *     <li>{@link TextSearchParameter#PAGE_TOKE}</li>
-     *     <li>{@link TextSearchParameter#REGION}</li>
-     *     <li>{@link TextSearchParameter#TYPE}</li>
+     *     <li>{@link RequestParameter#QUERY}</li>
+     *     <li>{@link RequestParameter#LANGUAGE}</li>
+     *     <li>{@link RequestParameter#PAGE_TOKE}</li>
+     *     <li>{@link RequestParameter#REGION}</li>
+     *     <li>{@link RequestParameter#TYPE}</li>
      * </ul>
      * @param parameter The key in the URL
      * @param value The value in the URL
      * @return Returns the own instance
      */
-    public TextSearchRequest addParameter(TextSearchParameter parameter, String value) {
+    public TextSearchRequest addParameter(RequestParameter parameter, String value) {
         this.parameters.put(parameter, value);
         return this;
     }
@@ -85,15 +91,15 @@ public class TextSearchRequest implements Request {
      * Adds a parameter to the search query. If the same TextSearchParameter is added several times, then the last one is overwritten.
      * A parameter always consists of a key and a value. This method should be used for one of the following parameters:
      * <ul>
-     *     <li>{@link TextSearchParameter#MAX_PRICE}</li>
-     *     <li>{@link TextSearchParameter#MIN_PRICE}</li>
-     *     <li>{@link TextSearchParameter#RADIUS}</li>
+     *     <li>{@link RequestParameter#MAX_PRICE}</li>
+     *     <li>{@link RequestParameter#MIN_PRICE}</li>
+     *     <li>{@link RequestParameter#RADIUS}</li>
      * </ul>
      * @param parameter The key in the URL
      * @param value The value in the URL
      * @return Returns the own instance
      */
-    public TextSearchRequest addParameter(TextSearchParameter parameter, int value) {
+    public TextSearchRequest addParameter(RequestParameter parameter, int value) {
         return addParameter(parameter, Integer.toString(value));
     }
 
@@ -101,13 +107,13 @@ public class TextSearchRequest implements Request {
      * Adds a parameter to the search query. If the same TextSearchParameter is added several times, then the last one is overwritten.
      * A parameter always consists of a key and a value. This method should be used for one of the following parameters:
      * <ul>
-     *     <li>{@link TextSearchParameter#OPEN_NOW}</li>
+     *     <li>{@link RequestParameter#OPEN_NOW}</li>
      * </ul>
      * @param parameter The key in the URL
      * @param value The value in the URL
      * @return Returns the own instance
      */
-    public TextSearchRequest addParameter(TextSearchParameter parameter, boolean value) {
+    public TextSearchRequest addParameter(RequestParameter parameter, boolean value) {
         return addParameter(parameter, Boolean.toString(value));
     }
 
@@ -115,13 +121,13 @@ public class TextSearchRequest implements Request {
      * Adds a parameter to the search query. If the same TextSearchParameter is added several times, then the last one is overwritten.
      * A parameter always consists of a key and a value. This method should be used for one of the following parameters:
      * <ul>
-     *     <li>{@link TextSearchParameter#LOCATION}</li>
+     *     <li>{@link RequestParameter#LOCATION}</li>
      * </ul>
      * @param parameter The key in the URL
      * @param value The value in the URL
      * @return Returns the own instance
      */
-    public TextSearchRequest addParameter(TextSearchParameter parameter, LatLngLiteral value) {
+    public TextSearchRequest addParameter(RequestParameter parameter, LatLngLiteral value) {
         return addParameter(parameter, value.getValue());
     }
 
@@ -130,26 +136,26 @@ public class TextSearchRequest implements Request {
      * A parameter always consists of a key and a value. This method can be used when you want to specify a location
      * but do not have a LatLngLiteral instance. This method should be used for one of the following parameters:
      * <ul>
-     *     <li>{@link TextSearchParameter#LOCATION}</li>
+     *     <li>{@link RequestParameter#LOCATION}</li>
      * </ul>
      * @param parameter The key in the URL
      * @param lat The lat location
      * @param lan The lan location
      * @return Returns the own instance
      */
-    public TextSearchRequest addParameter(TextSearchParameter parameter, float lat, float lan) {
+    public TextSearchRequest addParameter(RequestParameter parameter, float lat, float lan) {
         return addParameter(parameter, String.format(Utility.LAT_LNG_STRING_FORMAT, lat, lan));
     }
 
     /**
      * Adds a parameter to the search query. If the same TextSearchParameter is added several times, then the last one is overwritten.
-     * A parameter always consists of a key and a value. The value value is determined by the toString() method. Can be used for custom classes.
+     * A parameter always consists of a key and a value. The value is determined by the getValue() method. Can be used for custom classes.
      *
      * @param parameter The key in the URL
      * @param value The value in the URL
      * @return Returns the own instance
      */
-    public TextSearchRequest addParameter(TextSearchParameter parameter, Parameter value) {
+    public TextSearchRequest addParameter(RequestParameter parameter, Parameter value) {
         return addParameter(parameter, value.getValue());
     }
 

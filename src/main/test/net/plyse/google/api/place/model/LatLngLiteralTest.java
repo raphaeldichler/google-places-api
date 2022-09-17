@@ -12,13 +12,13 @@ class LatLngLiteralTest {
     @Test
     void testToString() {
         LatLngLiteral l = new LatLngLiteral(5,6);
-        assertEquals("5.0%2C6.0", l.toString());
+        assertEquals("5.0%2C6.0", l.getValue());
 
         LatLngLiteral l1 = new LatLngLiteral(-5,-6);
-        assertEquals("-5.0%2C-6.0", l1.toString());
+        assertEquals("-5.0%2C-6.0", l1.getValue());
 
         LatLngLiteral l2 = new LatLngLiteral(0,0);
-        assertEquals("0.0%2C0.0", l2.toString());
+        assertEquals("0.0%2C0.0", l2.getValue());
     }
 
 }
