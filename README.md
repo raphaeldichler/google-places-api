@@ -20,7 +20,9 @@
 
 This library streamlines the use of the Google Places API in combination with Spring Boot. So you don't have to struggle with building clever requests to the API and then painstakingly integrating that again into the Spring environment.
 
-not finished
+> **Warning**
+> not finished
+
 
 # Getting Started
 
@@ -57,11 +59,14 @@ If you use another building tool which is not listed here or you want to use ano
 
 In order to make an API request to Google, you need an API key, which you can create [here](https://console.cloud.google.com). How exactly to create an API key is described on the [official website](https://developers.google.com/maps/documentation/javascript/get-api-key) of Google.
 
-Once you have a valid API key, you need to add it to the project. To do this, create a file named config.properties under /src/main/resources/. The API key is stored in this file.
+Once you have a valid API key, you need to add it to the project. To do this, create a file named config.properties under `/src/main/resources/` in which the API key is stored. Then you only have to add the API-Key to the file as follows (`YOUR_API_KEY` stands for your API-Key, which you got earlier under the [Google Cloud Console](https://console.cloud.google.com)).
 
 ```
-google.api.places.api-key=API_KEY
+google.api.places.api-key=YOUR_API_KEY
 ```
+
+> :information_source: If the API key is not valid, then Java throws an [`IllegalApiKeyException`](https://github.com/raphaeldichler/google-places-api/blob/master/src/main/java/net/plyse/google/api/place/exception/IllegalApiKeyException.java), which indicates that the specified API key is no longer valid.
+
 
 ## Dependencies
 
