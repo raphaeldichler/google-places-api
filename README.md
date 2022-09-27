@@ -70,7 +70,8 @@ google.api.places.api-key=YOUR_API_KEY
 > :information_source: If the API key is not valid, then Java throws an [`IllegalApiKeyException`](https://github.com/raphaeldichler/google-places-api/blob/master/src/main/java/net/plyse/google/api/place/exception/IllegalApiKeyException.java), which indicates that the specified API key is no longer valid.
 
 
-## Dependencies
+
+# Dependencies
 
 This library is built on top of two common libraries and also designed to
 work with any HTTP service on the web:
