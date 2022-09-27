@@ -24,7 +24,11 @@ not finished
 
 # Getting Started
 
-You can add the library to your project via Maven or Gradle.
+This is a step-by-step guide on how to work with this repository and what preparation is needed to generally communicate with the Google Places API. 
+
+## First Step
+
+To work with this repository, it must be added to your project. There are several ways to do this, but the easiest way is to use a software project management and comprehension tool. You can add the library to your project via Maven or Gradle.
 
 ### Maven
 ```xml
@@ -49,6 +53,16 @@ dependencies {
 
 If you use another building tool which is not listed here or you want to use another version you can check the [following link](https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar).
 
+## Second step
+
+In order to make an API request to Google, you need an API key, which you can create [here](https://console.cloud.google.com). How exactly to create an API key is described on the [official website](https://developers.google.com/maps/documentation/javascript/get-api-key) of Google.
+
+Once you have a valid API key, you need to add it to the project. To do this, create a file named config.properties under /src/main/resources/. The API key is stored in this file.
+
+```
+google.api.places.api-key=API_KEY
+```
+
 ## Dependencies
 
 This library is built on top of two common libraries and also designed to
@@ -65,6 +79,9 @@ View the [javadoc](https://www.javadoc.io/doc/net.plyse/google-places-api).
 - [Places API]
 
 # Introduction to the Google Places API
+
+# License
+google-places-api is distributed under the terms of the Apache License Version 2.0. A complete version of the license is available in the [LICENSE](https://github.com/raphaeldichler/google-places-api/blob/master/LICENSE.md) file in this repository. Any contribution made to this project will be licensed under the Apache License Version 2.0.
 
 [contributors-shield]: https://img.shields.io/github/contributors/AuTEraZer/GooglePlacesApi.svg?style=for-the-badge
 [contributors-url]: https://github.com/AuTEraZer/GooglePlacesApi/graphs/contributors
