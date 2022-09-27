@@ -18,17 +18,19 @@
 
 # google-place-api
 
-This library streamlines the use of the Google Places API in combination with Spring Boot. So you don't have to struggle with building clever requests to the API and then painstakingly integrating that again into the Spring environment.
-
 > **Warning**
 > not finished
 
+This library streamlines the use of the Google Places API in combination with Spring Boot. So you don't have to struggle with building clever requests to the API and then painstakingly integrating that again into the Spring environment.
+
+
+> :information_source: If an **error** occurs during compilation or runtime and you don't know why, you can check the following [link]() to see how to fix it.
 
 # Getting Started
 
 This is a step-by-step guide on how to work with this repository and what preparation is needed to generally communicate with the Google Places API. 
 
-## First Step
+## First Step - Integrate the repository into your project
 
 To work with this repository, it must be added to your project. There are several ways to do this, but the easiest way is to use a software project management and comprehension tool. You can add the library to your project via Maven or Gradle.
 
@@ -53,13 +55,13 @@ dependencies {
 }
 ```
 
-If you use another building tool which is not listed here or you want to use another version you can check the [following link](https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar).
+If you use another building tool which is not listed here or *you want to use another version* you can check the [following link](https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar).
 
-## Second step
+## Second step - Configure all important information
 
 In order to make an API request to Google, you need an API key, which you can create [here](https://console.cloud.google.com). How exactly to create an API key is described on the [official website](https://developers.google.com/maps/documentation/javascript/get-api-key) of Google.
 
-Once you have a valid API key, you need to add it to the project. To do this, create a file named config.properties under `/src/main/resources/` in which the API key is stored. Then you only have to add the API-Key to the file as follows (`YOUR_API_KEY` stands for your API-Key, which you got earlier under the [Google Cloud Console](https://console.cloud.google.com)).
+Once you have a valid API key, you need to add it to the project. To do this, create a file named config.properties under `/src/main/resources/` in which the API key is stored. Then you only have to add the API-Key to the file as follows (`YOUR_API_KEY` stands for your API-Key).
 
 ```
 google.api.places.api-key=YOUR_API_KEY
@@ -86,7 +88,7 @@ View the [javadoc](https://www.javadoc.io/doc/net.plyse/google-places-api).
 # Introduction to the Google Places API
 
 # License
-google-places-api is distributed under the terms of the Apache License Version 2.0. A complete version of the license is available in the [LICENSE](https://github.com/raphaeldichler/google-places-api/blob/master/LICENSE.md) file in this repository. Any contribution made to this project will be licensed under the Apache License Version 2.0.
+This repository is distributed under the terms of the Apache License Version 2.0. A complete version of the license is available in the [LICENSE](https://github.com/raphaeldichler/google-places-api/blob/master/LICENSE.md) file in this repository. Any contribution made to this project will be licensed under the Apache License Version 2.0.
 
 [contributors-shield]: https://img.shields.io/github/contributors/AuTEraZer/GooglePlacesApi.svg?style=for-the-badge
 [contributors-url]: https://github.com/AuTEraZer/GooglePlacesApi/graphs/contributors
