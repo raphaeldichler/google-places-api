@@ -47,6 +47,15 @@ dependencies {
 }
 ```
 
+## Dependencies
+
+This library is built on top of two common libraries and also designed to
+work with any HTTP service on the web:
+
+- [Jackson](https://github.com/FasterXML/jackson)
+- [OkHttp](https://github.com/square/okhttp)
+
+
 If you use another building tool which is not listed here or you want to use another version you can check the [following link](https://search.maven.org/artifact/net.plyse/google-places-api/0.1.2/jar).
 
 # Developer Documentation
