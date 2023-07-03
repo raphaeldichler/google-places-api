@@ -19,7 +19,7 @@
 # google-place-api
 
 > **Warning**
-> not finished
+> work in progress
 
 This library streamlines the use of the Google Places API in combination with Spring Boot. So you don't have to struggle with building clever requests to the API and then painstakingly integrating that again into the Spring environment.
 
